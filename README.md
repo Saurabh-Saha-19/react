@@ -1,3 +1,39 @@
+# React
+
+## Screenshots of the UI Designed
+
+### Home Page 
+![homepage](ProjImg/home.png)
+
+### About Us Page
+![aboutus](ProjImg/about.png)
+
+### Contact Us Page
+![contactus](ProjImg/contact.png)
+
+### Menu Page 
+![menu](ProjImg/menu.png)
+
+### Dishe with comments
+![dish](ProjImg/dish.png)
+
+### Loading Animation]
+![loading animation](ProjImg/animation.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
