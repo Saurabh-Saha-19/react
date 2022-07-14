@@ -1,44 +1,48 @@
-import React, { Component } from "react";
-import {
-  Card,
-  CardImg,
-  CardImgOverlay,
-  CardText,
-  CardBody,
-  CardTitle,
-} from "reactstrap";
+import React from 'react';
+import { Card, CardImg, CardImgOverlay,CardTitle } from 'reactstrap';
+import { baseUrl } from '../shared/baseUrl';
+import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-class Menu extends Component {
-  constructor(props) {
-    super(props);
-    //console.log("Menu component constructed");
-  }
-
-  render() {
-    //console.log("renders menu component");
-    const menu = this.props.dishes.map((dish) => {
-      return (
-        <div key={dish.id} className="col-12 col-md-5 m-1">
-          <Card key={dish.id} onClick={() => this.props.onClick(dish.id)}>
-            <CardImg width="100%" src={dish.image} alt={dish.name} />
-            <CardImgOverlay>
-              <CardTitle> {dish.name}</CardTitle>
-            </CardImgOverlay>
-          </Card>
-        </div>
-      );
-    });
-
+function RenderMenuItem ({dish, onClick}) {
     return (
-      <div className="container">
-        <div className="row">{menu}</div>
-      </div>
+        <Card>
+            <Link to={`/menu/${dish.id}`} >
+                <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
+                <CardImgOverlay>
+                    <CardTitle>{dish.name}</CardTitle>
+                </CardImgOverlay>
+            </Link>
+        </Card>
     );
-  }
+}
 
-  // componentDidMount() {
-  //   console.log("Menu component componentDidMounbt is invoked");
-  // }
+const Menu = (props) => {
+    console.log(props);
+    const menu = props.dishes.dishes.map((dish) => {
+        return (
+            <div className="col-12 col-md-5 m-1"  key={dish.id}>
+                <RenderMenuItem dish={dish} />
+            </div>
+        );
+    });
+    return (
+        <div className="container">
+            <div className="row">
+                <Breadcrumb>
+                    <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+                    <BreadcrumbItem active>Menu</BreadcrumbItem>
+                </Breadcrumb>
+                <div className="col-12">
+                    <h3>Menu</h3>
+                    <hr />
+                </div>                
+            </div>
+            <div className="row">
+                {menu}
+            </div>
+        </div>
+    );
 }
 
 export default Menu;
