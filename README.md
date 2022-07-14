@@ -17,21 +17,6 @@
 ### Dishe with comments
 ![dish](ProjImg/dish.png)
 
-### Loading Animation]
-![loading animation](ProjImg/animation.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # Getting Started with Create React App
